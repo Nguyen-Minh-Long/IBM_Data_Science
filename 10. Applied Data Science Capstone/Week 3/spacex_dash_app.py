@@ -77,7 +77,7 @@ def get_pie_chart(entered_site):
         )
     else:
         filtered_df = filtered_df["class"].value_counts().to_frame()
-        filtered_df["Rate"] = ["Failure", "Success"]
+        filtered_df["Rate"] = ["Success", "Failure"]
         fig = px.pie(
             filtered_df,
             values="class",
@@ -110,7 +110,7 @@ def scatter(entered_launch_site, entered_payload):
             title="Correlation between Payload an Success for all Sites",
         )
     else:
-        filtered_df = spacex_df[spacex_df["Launch Site"] == entered_launch_site]
+        filtered_df = filtered_df[filtered_df["Launch Site"] == entered_launch_site]
         new_fig = px.scatter(
             filtered_df,
             x="Payload Mass (kg)",
